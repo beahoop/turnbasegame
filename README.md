@@ -66,6 +66,8 @@ look at event listeners
 constructors for player and enemy
 look at css for the board.html
 
+**Mady**Said include music
+
 
 **Git**
 

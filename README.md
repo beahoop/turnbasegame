@@ -56,7 +56,7 @@ black bar
 #Thursday
 
 **Steven**
-html and css our home page
+html and css of our home page
 
 **Billy**
 to look into the health bar and

@@ -1,1 +1,19 @@
 /* Initial CSS */
+
+
+body {
+  background-color: lightblue;
+}
+
+
+
+.dot {
+  height: 35px;
+  width: 35px;
+  background-color: #296088;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  /* margin-left: -17.5px; */
+  left: 50%;
+}

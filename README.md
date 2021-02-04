@@ -52,3 +52,16 @@ yellow small but large health and small attack point
 
 **Health Bar**
 black bar
+
+#Thursday
+
+**Steven**
+html and css our home page
+
+**Billy**
+to look into the health bar and
+look at event listeners
+
+**Sarah**
+constructors for player and enemy
+look at css for the board.html

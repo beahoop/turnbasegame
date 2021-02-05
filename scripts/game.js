@@ -27,11 +27,13 @@ function Player({color, size, health, attackPoints, username ='Computer'} = {}) 
   this.username = username;
 };
 
+player.health
+
 const players = {
   purple: {
     color: 'purple',
     size: 'small',
-    health: 500,
+    health: 100,
     attackPoints: 10,
     username: 'user',
   },

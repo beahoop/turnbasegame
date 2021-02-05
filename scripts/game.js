@@ -51,7 +51,37 @@ const players = {
     username: 'user',
   }
 };
-// const enemies = [];
+console.log("hi!");
+function Enemies({color, size, health, attackPoints, username ='Enemy'} = {}) {
+  this.color = color,
+  this.size = size,
+  this.health  = health,
+  this.attackPoints = attackPoints,
+  this.username = username;
+};
+const enemies = {
+  brown: {
+    color: 'brown',
+    size: 'small',
+    health: 100,
+    attackPoints: 10,
+    username: 'enemy1',
+  },
+  black: {
+    color: 'black',
+    size: 'large',
+    health: 100,
+    attackPoints: 50,
+    username: 'enemy2',
+  },
+  yellow: {
+    color: 'yellow',
+    size: 'med',
+    health: 250,
+    attackPoints: 25,
+    username: 'enemy3',
+  }
+};
 
 let player;
 let getPlayer;
@@ -59,6 +89,7 @@ let getPlayer;
 const selectPlayer = (event) => {
   const selection = event.target.value;
   player = new Player(players[selection]);
+  console.log("hi");
   generateOrgs(player);
   // localStorage.setItem('selectedPlayer', JSON.stringify(player));
   console.log(player);
@@ -73,13 +104,13 @@ greenButton.addEventListener('click', selectPlayer);
 
 //////////// deal with player health value, modify length of health bar
 
-const playerHealthBar = document.querySelector('.playerhr');
-const enemyHealthBar = document.querySelector('.enemyhr');
+// const playerHealthBar = document.querySelector('.playerhr');
+// const enemyHealthBar = document.querySelector('.enemyhr');
 
 // let x = prompt("Health of player? ");
 
-playerHealthBar.style.width = `${x}px`;
-console.log(playerHealthBar.style.width)
+// playerHealthBar.style.width = `${x}px`;
+// console.log(playerHealthBar.style.width)
 
 ////////////testing animation
 function myFunction() {
@@ -107,17 +138,17 @@ const generateOrgs = (data) => {
 
 /// testing board
 
-
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', alertValue);
-}
-
-function alertValue(event) {
-  const buttonValue = event.target.value;
-  console.log(buttonValue);
-  var firstUp = buttonValue;
-  valArr.push(buttonValue);
-}
+//
+// for (let i = 0; i < buttons.length; i++) {
+//   buttons[i].addEventListener('click', alertValue);
+// }
+//
+// function alertValue(event) {
+//   const buttonValue = event.target.value;
+//   console.log(buttonValue);
+//   var firstUp = buttonValue;
+//   valArr.push(buttonValue);
+// }
 
 
 //  testing board ends

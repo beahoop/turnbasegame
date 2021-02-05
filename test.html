@@ -143,3 +143,11 @@ function myFunction() {
     </script>
   </body>
 </html>
+
+const playerHealthBar = document.querySelector('.playerhr');
+const enemyHealthBar = document.querySelector('.enemyhr');
+
+function healthBarMath(healthBar, healthMax, healthIncrement) {
+  newHealth = currentHealth - ((250 / healthMax) * healthIncrement)
+  healthBar.style.width = `${newHealth}px`;
+}

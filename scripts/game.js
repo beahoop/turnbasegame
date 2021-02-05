@@ -107,10 +107,24 @@ greenButton.addEventListener('click', selectPlayer);
 // const playerHealthBar = document.querySelector('.playerhr');
 // const enemyHealthBar = document.querySelector('.enemyhr');
 
+<<<<<<< HEAD
 // let x = prompt("Health of player? ");
 
 // playerHealthBar.style.width = `${x}px`;
 // console.log(playerHealthBar.style.width)
+=======
+//
+
+function healthBarMath(healthBar, healthMax, healthIncrement) {
+  //newHealth = currentHealth - ((250 / healthMax) * healthIncrement)
+  healthBar.style.width = `${newHealth}px`;
+}
+
+// let x = prompt("Health of player? ");
+
+
+console.log(playerHealthBar.style.width)
+>>>>>>> fa85879 (Adding basic function)
 
 ////////////testing animation
 function myFunction() {

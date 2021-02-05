@@ -51,7 +51,32 @@ const players = {
     username: 'user',
   }
 };
-// const enemies = [];
+
+
+ const enemies = {
+   orange: {
+    color: 'orange',
+    size: 'medium',
+    health: 125,
+    attackPoints: 10,
+    username: 'Computer',
+  },
+  blue: {
+    color: 'blue',
+    size: 'large',
+    health: 100,
+    attackPoints: 25,
+    username: 'Computer'
+  },
+   gold: {
+    color: 'gold',
+    size: 'small',
+    health: 250,
+    attackPoints:50,
+    username: 'Computer'
+   }
+ };
+
 
 let player;
 
@@ -89,17 +114,17 @@ function myFunction() {
 
 /// testing board
 
-
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', alertValue);
-}
-
-function alertValue(event) {
-  const buttonValue = event.target.value;
-  console.log(buttonValue);
-  var firstUp = buttonValue;
-  valArr.push(buttonValue);
-}
+//
+// for (let i = 0; i < buttons.length; i++) {
+//   buttons[i].addEventListener('click', alertValue);
+// }
+//
+// function alertValue(event) {
+//   const buttonValue = event.target.value;
+//   console.log(buttonValue);
+//   var firstUp = buttonValue;
+//   valArr.push(buttonValue);
+// }
 
 
 //  testing board ends

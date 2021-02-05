@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="./css/base.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
-    <body>
-
-    <div class="d-inline-flex p-3 bg-secondary text-white" id="gamediv">
+    <body class="container">
+<div id="gamediv">
+    <div class="d-inline-flex p-3 bg-secondary text-white">
 
         <div class="p-2 bg-danger">
         <h1> Player 1 OPTIONS</h1>
@@ -29,14 +29,24 @@
         </div>
 
    </div>
+ </div>
 
    <script id="game" type="text/x-handlebars-template">
-       <div>
-         <p class="{{this.color}}" id="myDiv">{{this.color}}</p>
-         <button class="btn-danger fightbtn" onclick="myFunction()">FIGHT</button>
-         </div>
-
+       <div class="row">
+           <div class="col-6">
+             <p class="{{this.color}}" id="myDiv">{{this.color}}</p>
+             <button class="btn-danger fightbtn" onclick="myFunction()">FIGHT</button>
+            <hr class="playerhr" />
+           </div>
    </script>
+   <script id="enemy" type="text/x-handlebars-template">
+       <div class="row">
+   <div class="col-6">
+     <p class="{{this.color}}" id="myEnemy">Hi</p>
+    </div>
+      <hr class="enemyhr" />
+</div>
+ </script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
        <script src="./scripts/game.js" charset="utf-8"></script>
 </body>

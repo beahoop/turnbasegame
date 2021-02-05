@@ -1,3 +1,11 @@
+
+
+
+//
+// healthbar = player.healthbar
+
+
+
 // user = prompt("Hello what is your username?")
 
 // player {
@@ -19,10 +27,11 @@
 // dog.name would equal Sarah
 //
 console.log("hi!");
-function Player({color, size, health, attackPoints, username ='Computer'} = {}) {
+function Player({color, size, healthbar =  ,health, attackPoints, username ='Computer'} = {}) {
   this.color = color,
   this.size = size,
   this.health  = health,
+  this.healthbar = healthbar,
   this.attackPoints = attackPoints,
   this.username = username;
 };
@@ -32,7 +41,7 @@ const players = {
   gray: {
     color: 'gray',
     size: 'small',
-    health: 100,
+    health: 500,
     attackPoints: 10,
     username: 'user',
   },
@@ -59,11 +68,13 @@ function Enemies({color, size, health, attackPoints, username ='Enemy'} = {}) {
   this.attackPoints = attackPoints,
   this.username = username;
 };
+
+
 const enemies = {
   brown: {
     color: 'brown',
     size: 'small',
-    health: 100,
+    health: 500,
     attackPoints: 10,
     username: 'enemy1',
   },
@@ -91,7 +102,6 @@ const selectPlayer = (event) => {
   player = new Player(players[selection]);
   console.log("hi");
   generateOrgs(player);
-  // localStorage.setItem('selectedPlayer', JSON.stringify(player));
   console.log(player);
 };
 
@@ -121,15 +131,15 @@ console.log(playerHealthBar.style.width)
 function myFunction() {
   var element = document.getElementById("myDiv");
   element.classList.toggle(player.color+"fight");
+  var element = document.getElementById("myEnemy");
+  element.classList.toggle("enemyfight");
   var buttonWords = document.querySelector(".fightbtn");
  if (buttonWords.innerHTML === "FIGHT") {
    buttonWords.innerHTML = "RELOAD!";
  } else {
    buttonWords.innerHTML = "FIGHT";
  }
-  // var element = document.getElementById("myEnemy");
-  // element.classList.toggle("enemyfight");
-}
+};
 ////////////////////////////////
 
 const generateOrgs = (data) => {
@@ -138,7 +148,7 @@ const generateOrgs = (data) => {
   const context = data;
   const html = template(context);
   document.getElementById("gamediv").innerHTML = html;
-}
+};
 
 
 /// testing board

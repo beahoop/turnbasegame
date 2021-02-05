@@ -29,8 +29,8 @@ function Player({color, size, health, attackPoints, username ='Computer'} = {}) 
 
 
 const players = {
-  grey: {
-    color: 'grey',
+  gray: {
+    color: 'gray',
     size: 'small',
     health: 100,
     attackPoints: 10,
@@ -54,15 +54,18 @@ const players = {
 // const enemies = [];
 
 let player;
+let getPlayer;
 
 const selectPlayer = (event) => {
   const selection = event.target.value;
   player = new Player(players[selection]);
+  generateOrgs(player);
+  // localStorage.setItem('selectedPlayer', JSON.stringify(player));
   console.log(player);
-}
+};
 
-const greyButton = document.querySelector('.grey');
-greyButton.addEventListener('click', selectPlayer);
+const grayButton = document.querySelector('.gray');
+grayButton.addEventListener('click', selectPlayer);
 const redButton = document.querySelector('.red');
 redButton.addEventListener('click', selectPlayer);
 const greenButton = document.querySelector('.green');
@@ -73,17 +76,32 @@ greenButton.addEventListener('click', selectPlayer);
 const playerHealthBar = document.querySelector('.playerhr');
 const enemyHealthBar = document.querySelector('.enemyhr');
 
-let x = prompt("Health of player? ");
+// let x = prompt("Health of player? ");
 
 playerHealthBar.style.width = `${x}px`;
 console.log(playerHealthBar.style.width)
 
 ////////////testing animation
 function myFunction() {
-  var element = document.getElementById("myDIV");
-  element.classList.toggle("playerfight");
-  var element = document.getElementById("myEnemy");
-  element.classList.toggle("enemyfight");
+  var element = document.getElementById("myDiv");
+  element.classList.toggle(player.color+"fight");
+  var buttonWords = document.querySelector(".fightbtn");
+ if (buttonWords.innerHTML === "FIGHT") {
+   buttonWords.innerHTML = "RELOAD!";
+ } else {
+   buttonWords.innerHTML = "FIGHT";
+ }
+  // var element = document.getElementById("myEnemy");
+  // element.classList.toggle("enemyfight");
+}
+////////////////////////////////
+
+const generateOrgs = (data) => {
+  const source = document.getElementById("game").innerHTML;
+  const template = Handlebars.compile(source);
+  const context = data;
+  const html = template(context);
+  document.getElementById("gamediv").innerHTML = html;
 }
 
 

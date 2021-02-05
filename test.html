@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+  </head>
+  <body>
+    <hr class="health" style="width: 100%" />
+    <script src="./scripts/game.js"></script>
+  </body>
+</html>
+
+
 // user = prompt("Hello what is your username?")
 
 // player {
@@ -27,12 +40,11 @@ function Player({color, size, health, attackPoints, username ='Computer'} = {}) 
   this.username = username;
 };
 
-
 const players = {
-  grey: {
-    color: 'grey',
+  purple: {
+    color: 'purple',
     size: 'small',
-    health: 100,
+    health: 500,
     attackPoints: 10,
     username: 'user',
   },
@@ -61,8 +73,8 @@ const selectPlayer = (event) => {
   console.log(player);
 }
 
-const greyButton = document.querySelector('.grey');
-greyButton.addEventListener('click', selectPlayer);
+const purpleButton = document.querySelector('.purple');
+purpleButton.addEventListener('click', selectPlayer);
 const redButton = document.querySelector('.red');
 redButton.addEventListener('click', selectPlayer);
 const greenButton = document.querySelector('.green');
@@ -85,3 +97,49 @@ function myFunction() {
   var element = document.getElementById("myEnemy");
   element.classList.toggle("enemyfight");
 }
+
+
+----
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/board.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  </head>
+  <body class="container">
+<div class="row">
+<div class="col-6">
+  <div class="player" id="myDIV">
+  I'm the player
+  </div>
+  <hr class="playerhr" />
+
+<button class="btn-danger" onclick="myFunction()">FIGHT</button>
+</div>
+<div class="col-6">
+  <div class="enemy" id="myEnemy">
+    I'm the enemy
+  </div>
+  <hr class="enemyhr" />
+  <!-- <div class="box transform"> -->
+</div>
+
+</div>
+</div>
+<button class="btn-danger red" value="red">
+  PICK ME I'M RED.
+</button>
+<button class="purple" value="purple">
+    PICK ME I'M PURPLE.
+</button>
+<button class="green" value="green">
+    PICK ME I'M GREEN.
+</button>
+    <script src="scripts/game.js" charset="utf-8">
+    </script>
+  </body>
+</html>

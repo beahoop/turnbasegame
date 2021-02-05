@@ -102,6 +102,4 @@ function alertValue(event) {
 }
 
 
-   }
-
 //  testing board ends

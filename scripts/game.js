@@ -85,3 +85,23 @@ function myFunction() {
   var element = document.getElementById("myEnemy");
   element.classList.toggle("enemyfight");
 }
+
+
+/// testing board
+
+
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', alertValue);
+}
+
+function alertValue(event) {
+  const buttonValue = event.target.value;
+  console.log(buttonValue);
+  var firstUp = buttonValue;
+  valArr.push(buttonValue);
+}
+
+
+   }
+
+//  testing board ends

@@ -27,11 +27,10 @@ function Player({color, size, health, attackPoints, username ='Computer'} = {}) 
   this.username = username;
 };
 
-player.health
 
 const players = {
-  purple: {
-    color: 'purple',
+  grey: {
+    color: 'grey',
     size: 'small',
     health: 100,
     attackPoints: 10,
@@ -62,8 +61,8 @@ const selectPlayer = (event) => {
   console.log(player);
 }
 
-const purpleButton = document.querySelector('.purple');
-purpleButton.addEventListener('click', selectPlayer);
+const greyButton = document.querySelector('.grey');
+greyButton.addEventListener('click', selectPlayer);
 const redButton = document.querySelector('.red');
 redButton.addEventListener('click', selectPlayer);
 const greenButton = document.querySelector('.green');

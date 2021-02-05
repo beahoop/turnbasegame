@@ -72,4 +72,6 @@ greenButton.addEventListener('click', selectPlayer);
 function myFunction() {
   var element = document.getElementById("myDIV");
   element.classList.toggle("playerfight");
+  var element = document.getElementById("myEnemy");
+  element.classList.toggle("enemyfight");
 }

@@ -30,11 +30,39 @@
   animation: slide-right ease 3s;
 }
 
+.enemyfight {
+  height:100px;
+  width: 100px;
+  background-color: yellow;
+  border: 1px red solid;
+  border-radius: 200px;
+  animation: slide-left ease 4s;
+}
+
+
 @keyframes slide-right {
   0% {transform: translateX(0);
   opacity: 1;
   }
-  50% {transform: translateX(650px);
+  20% {transform: translateX(650px);
+  opacity: .5;
+  }
+  50% {transform: translateX(0);
+  opacity: 1;
+  }
+  100% {transform: translateX(0);
+  opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  0% {transform: translateX(0);
+  opacity: 1;
+  }
+  80% {transform: translateX(0);
+  opacity: 1;
+  }
+  90% {transform: translateX(-650px);
   opacity: .5;
   }
   100% {transform: translateX(0);

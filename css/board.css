@@ -1,0 +1,43 @@
+/* *********************css for board */
+
+.player {
+  height:100px;
+  width: 100px;
+  background-color: red;
+  border: 1px red solid;
+  border-radius: 200px;
+}
+
+
+.enemy {
+  height:100px;
+  width: 100px;
+  background-color: yellow;
+  border: 1px red solid;
+  border-radius: 200px;
+}
+
+
+
+
+/* TESTING ANIMATIONS */
+.playerfight {
+  height:100px;
+  width: 100px;
+  background-color: red;
+  border: 1px red solid;
+  border-radius: 200px;
+  animation: slide-right ease 3s;
+}
+
+@keyframes slide-right {
+  0% {transform: translateX(0);
+  opacity: 1;
+  }
+  50% {transform: translateX(650px);
+  opacity: .5;
+  }
+  100% {transform: translateX(0);
+  opacity: 1;
+  }
+}

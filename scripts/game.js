@@ -33,7 +33,8 @@ user = prompt("Hello what is your username?")
 //
 console.log("hi!");
 
-function Player({color, size, health, healthBar, maxHealth, attackPoints, username = 'Computer'} = {}) {
+function Player({color, url, size, health, healthBar, maxHealth, attackPoints, username = 'Computer'} = {}) {
+  this.url = url,
     this.color = color,
     this.size = size,
     this.health = health,
@@ -46,7 +47,7 @@ function Player({color, size, health, healthBar, maxHealth, attackPoints, userna
 
 const players = {
   gray: {
-
+    // url: "images/char.png",
     color: 'gray',
     size: 'small',
     health: 500,
@@ -82,8 +83,10 @@ size,
 health,
 maxHealth,
 healthBar,
+url,
 attackPoints, username} = {})
-{   this.e_color = color,
+{   this.e_url = url,
+    this.e_color = color,
     this.e_size = size,
     this.e_health = health,
     this.e_healthBar = healthBar,
@@ -95,6 +98,7 @@ attackPoints, username} = {})
 
 const enemy = {
   brown: {
+    e_url: "images/bagguy1.png",
     e_color: 'brown',
     e_size: 'small',
     e_health: 500,
@@ -103,6 +107,7 @@ const enemy = {
     e_username: 'Eliminator!',
   },
   black: {
+    e_url: "images/bagguy1.png",
     e_color: 'black',
     e_size: 'large',
     e_health: 100,
@@ -111,6 +116,7 @@ const enemy = {
     e_username: 'Extinguisher!',
   },
   yellow: {
+    e_url: "images/bagguy2.png",
     e_color: 'yellow',
     e_size: 'med',
     e_health: 250,
@@ -157,7 +163,8 @@ const selectPlayer = (event) => {
   console.log("hi");
   generateOrgs(player, badguy);
   console.log(player);
-
+  var enemyStyle = document.getElementById("myEnemy");
+  enemyStyle.classList = badguy.e_color;
 };
 
 const grayButton = document.querySelector('.gray');
@@ -184,14 +191,15 @@ function toggleing() {
   } else {
     buttonWords.innerHTML = "FIGHT";
     var enemyStyle = document.getElementById("myEnemy");
-    enemyStyle.classList.toggle(badguy.e_color);
+
   }
   fight()
 toggleEnemy()
 };
 function toggleEnemy() {
+  
   var enemyStyle = document.getElementById("myEnemy");
-  enemyStyle.classList = badguy.e_color;
+
   enemyStyle.classList.toggle(badguy.e_color + "fight");
 }
 //////////

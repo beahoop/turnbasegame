@@ -194,10 +194,11 @@ position: relative;
   position: relative;
 }
 
-.door {
+/* .door {
   height: 300px;
   position: absolute;
-}
+  animation: slide-door ease 1s;
+} */
 
 
 /* /////////////////////////////////////ANIMATIONS */
@@ -216,6 +217,21 @@ position: relative;
   opacity: 1;
   }
 }
+
+/* @keyframes slide-door {
+  0% {transform: translateY(0);
+  opacity: .0;
+  }
+  20% {transform: translateY(100);
+  opacity: .5;
+  }
+  50% {transform: translateY(0);
+  opacity: .0;
+  }
+  100% {transform: translateY(0);
+  opacity: .0;
+  }
+} */
 
 @keyframes slide-left {
   0% {transform: translateX(0);

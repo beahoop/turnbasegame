@@ -20,7 +20,7 @@ body {
 
 
 
-   
+
 .redbtn, .red  {
   width: 200px;
   height: 200px;
@@ -93,6 +93,12 @@ body {
 }
 
 /* use */
+.brown {
+  height:100px;
+  width: 100px;
+  background-color: brown;
+  border: 1px brown solid;
+}
 
 .brownfight {
   height:100px;
@@ -102,12 +108,24 @@ body {
   animation: slide-left ease 3s;
 }
 
-.goldfight {
+.black {
+  height:150px;
+  width: 90px;
+  background-color: gold;
+  border: 1px gold solid;
+}
+.blackfight {
   height:150px;
   width: 90px;
   background-color: gold;
   border: 1px gold solid;
   animation: slide-left ease 3s;
+}
+.yellow {
+  height:100px;
+  width: 100px;
+  background-color: yellow;
+  border: 1px yellow solid;
 }
 
 .yellowfight {

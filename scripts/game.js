@@ -46,7 +46,7 @@ function Player({color, size, health, healthBar, maxHealth, attackPoints, userna
 
 const players = {
   gray: {
-    healthBar: document.querySelector('.playerhr'),
+
     color: 'gray',
     size: 'small',
     health: 500,
@@ -55,7 +55,7 @@ const players = {
     username: user,
   },
   red: {
-    healthBar: document.querySelector('.playerhr'),
+
     color: 'red',
     size: 'large',
     health: 100,
@@ -64,7 +64,7 @@ const players = {
     username: user,
   },
   green: {
-    healthBar: document.querySelector('.playerhr'),
+
     color: 'green',
     size: 'med',
     health: 250,
@@ -74,7 +74,9 @@ const players = {
   }
 };
 console.log("hi!");
-
+// Player.prototype.healthbar {
+//
+// }
 function Enemy({ color = "brown",
 size = "small",
 health = 500,
@@ -100,7 +102,6 @@ const enemy = {
     e_attackPoints: 10,
     e_username: 'Eliminator!',
   },
-
   black: {
     e_color: 'black',
     e_size: 'large',
@@ -108,14 +109,6 @@ const enemy = {
     e_maxHealth: 100,
     e_attackPoints: 50,
     e_username: 'Extinguisher!',
-
-  gold: {
-    color: 'gold',
-    size: 'large',
-    health: 100,
-    attackPoints: 50,
-    username: 'enemy2',
-s
   },
   yellow: {
     e_color: 'yellow',
@@ -148,28 +141,14 @@ function get_rand(array) {
 for (var i = 0; i < 1; i++) {
   if (i < 1) {
     var placeHolderRandomNo = (get_rand(nums));
-
     var computerPlayerStats = enemy[Object.keys(enemy)[placeHolderRandomNo]];
     badguy = new Enemy(computerPlayerStats);
-
-     var computerPlayerStats = enemy[Object.keys(enemy)[placeHolderRandomNo]];
-//    myEnemy= enemy[Object.keys(enemy)[placeHolderRandomNo]];
-
-
     console.log(computerPlayerStats);
     console.log(placeHolderRandomNo);
     console.log(badguy);
   }
 };
 
-
-
-
-
-
-
-
-enemy player box updates
 let player;
 let getPlayer;
 

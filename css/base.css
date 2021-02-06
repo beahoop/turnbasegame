@@ -117,7 +117,7 @@ body {
 .blackfight {
   height:150px;
   width: 90px;
-  background-color: gold;
+  background-color: black;
   border: 1px gold solid;
   animation: slide-left ease 3s;
 }
@@ -146,7 +146,6 @@ body {
   text-align: center;
   font-weight: bolder;
   font-size: 5rem;
-  position: absolute;
 }
 
 .stadium {
@@ -180,7 +179,14 @@ position: relative;
   height: 10px;
   color: red;
 }
+.enemyside {
+  position: relative;
+}
 
+.door {
+  height: 300px;
+  position: absolute;
+}
 
 
 /* /////////////////////////////////////ANIMATIONS */

@@ -157,6 +157,7 @@ const selectPlayer = (event) => {
   console.log("hi");
   generateOrgs(player, badguy);
   console.log(player);
+
 };
 
 const grayButton = document.querySelector('.gray');
@@ -173,20 +174,26 @@ greenButton.addEventListener('click', selectPlayer);
 // let x = prompt("Health of player? ");
 
 function toggleing() {
-  var elementTwo = document.getElementById("myEnemy");
-
-  elementTwo.classList.toggle(badguy.e_color + "fight");
   var element = document.getElementById("myDiv");
   element.classList.toggle(player.color + "fight");
-
   var buttonWords = document.querySelector(".fightbtn");
   if (buttonWords.innerHTML === "FIGHT") {
     buttonWords.innerHTML = "RELOAD!";
+    var enemyStyle = document.getElementById("myEnemy");
+
   } else {
     buttonWords.innerHTML = "FIGHT";
+    var enemyStyle = document.getElementById("myEnemy");
+    enemyStyle.classList.toggle(badguy.e_color);
   }
   fight()
+toggleEnemy()
 };
+function toggleEnemy() {
+  var enemyStyle = document.getElementById("myEnemy");
+  enemyStyle.classList = badguy.e_color;
+  enemyStyle.classList.toggle(badguy.e_color + "fight");
+}
 //////////
 // enemy.health = 100;
 // enemy.attackPoints = 20;
@@ -206,8 +213,8 @@ function fight() {
     console.log(badguy.e_attackPoints);
     player.health = player.health - badguy.e_attackPoints;
     badguy.e_health = badguy.e_health - player.attackPoints;
-    healthBarMath(badguy, badguy.e_attackPoints, "-");
-    healthBarMath(player, player.attackPoints, "-");
+    // healthBarEnemy(badguy);
+    healthBar(player);
     console.log('badguyhealth', badguy.e_username, badguy.e_health);
     console.log('playerhealth', player.username, player.health);
   } else if(buttonWords.innerHTML === "FIGHT") {
@@ -248,25 +255,29 @@ function endGameDisplay() {
 //////////// deal with player health value, modify length of health bar
 
 // const playerHealthBar =
-const enemyHealthBar = document.querySelector('.enemyhr');
-let death = false;
+// const enemyHealthBar = document.querySelector('.enemyhr');
+// let death = false;
+//
+//
+// function healthBarMath(character, healthIncrement, operation) {
+//   let newHealth;
+//   var healthBar = document.querySelector(".healthbar");
+//   if (operation === "+") {
+//     newHealth = ((500 / character.maxHealth) * character.health) + ((500 / character.maxHealth) * healthIncrement);
+//   } else if (operation === "-") {
+//     newHealth = ((500 / character.maxHealth) * character.health) - ((500 / character.maxHealth) * healthIncrement);
+//   };
+//   healthBar.style.width = `${newHealth}px`;
+// }
 
+function healthBar(character) {
+  healthbar = document.querySelector(".healthbar");
+   healthbar.style.width = `${character.health}px`;
+};
 
-function healthBarMath(character, healthIncrement, operation) {
-  let newHealth;
-  var healthBar = document.querySelector(".healthbar");
-  if (operation === "+") {
-    newHealth = ((500 / character.maxHealth) * character.health) + ((500 / character.maxHealth) * healthIncrement);
-  } else if (operation === "-") {
-    newHealth = ((500 / character.maxHealth) * character.health) - ((500 / character.maxHealth) * healthIncrement);
-  };
-  healthBar.style.width = `${newHealth}px`;
-}
-
-// function healthBar(character) {
-//   healthbar = document.querySelector(".healthbar");
-//    healthbar.style.width = `${character.health}px`;
+// function healthBarEnemy(character) {
+//   healthbar = document.querySelector(".ehealthbar");
+//   healthbar.style.width = `${character.e_health}px`;
 // };
-
 
 // console.log(playerHealthBar.style.width)

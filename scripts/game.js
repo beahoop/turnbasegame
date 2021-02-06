@@ -156,8 +156,11 @@ greenButton.addEventListener('click', selectPlayer);
 
 
 // console.log(playerHealthBar.style.width)
-
+enemy.health = 100;
+enemy.attackPoints = 20;
+enemy.username = "Bad Guy";
 ///////////////////////////////ANIMATIONS
+
 function myFunction() {
   var element = document.getElementById("myDiv");
   element.classList.toggle(player.color + "fight");
@@ -173,10 +176,24 @@ function myFunction() {
 };
 ////////////////////////////////////
 function fight() {
-  enemy.health = enemy.health - player.attackPoints;
-  console.log('enemyhealth',enemy.health);
-  console.log('playerAP',player.attackPoints);
-}
+  var buttonWords = document.querySelector(".fightbtn");
+  if (enemy.health < 1) {
+    console.log(`${player.username} has won!`);
+    endGameDisplay()
+  }
+  else if (player.health < 1) {
+    console.log(`${enemy.username} has won...GAME OVER.`);
+    endGameDisplay()
+  }
+  else if(buttonWords.innerHTML === "RELOAD!"){
+    enemy.health = enemy.health - player.attackPoints;
+    player.health = player.health - enemy.attackPoints;
+    console.log('enemyhealth', enemy.username, enemy.health);
+    console.log('playerAP', player.username, player.attackPoints);
+  }
+  else if(buttonWords.innerHTML === "FIGHT" )
+  console.log("Reloading");
+};
 ////////////////////////////////HANDLEBARS
 
 const generateOrgs = (data) => {
@@ -186,7 +203,20 @@ const generateOrgs = (data) => {
   const html = template(context);
   document.getElementById("gamediv").innerHTML = html;
 };
-
+///////////////////////////////////
+function endGameDisplay() {
+  if (player.health < 1) {
+    //append this
+    document.querySelector(".winner").innerText = `${player.username} has WON!`;
+    console.log(`${enemy.username} has lost. ${player.username} has won!`);
+    return console.log("%c To play again refresh page" , "color:green");
+  } else if (enemy.health < 1) {
+    document.querySelector(".winner").innerText = `${enemy.username} has beated you!... GAME OVER`;
+    console.log("%c GAME OVER", "color:red");
+    console.log(`${player.username} has lost. ${enemy.username} has won!`);
+    return console.log("%c To play again refresh page" , "color:green");
+  }
+};
 
 /// testing board
 

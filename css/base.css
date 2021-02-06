@@ -127,6 +127,10 @@ position: relative;
   text-align: center;
 }
 
+.enemyhr {
+  height: 10px;
+  color: red;
+}
 
 
 

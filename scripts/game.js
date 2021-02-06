@@ -100,7 +100,7 @@ const enemy = {
     e_attackPoints: 10,
     e_username: 'Eliminator!',
   },
-<<<<<<< HEAD
+
   black: {
     e_color: 'black',
     e_size: 'large',
@@ -108,14 +108,14 @@ const enemy = {
     e_maxHealth: 100,
     e_attackPoints: 50,
     e_username: 'Extinguisher!',
-=======
+
   gold: {
     color: 'gold',
     size: 'large',
     health: 100,
     attackPoints: 50,
     username: 'enemy2',
->>>>>>> enemy player box updates
+s
   },
   yellow: {
     e_color: 'yellow',
@@ -148,29 +148,28 @@ function get_rand(array) {
 for (var i = 0; i < 1; i++) {
   if (i < 1) {
     var placeHolderRandomNo = (get_rand(nums));
-<<<<<<< HEAD
+
     var computerPlayerStats = enemy[Object.keys(enemy)[placeHolderRandomNo]];
     badguy = new Enemy(computerPlayerStats);
-=======
+
      var computerPlayerStats = enemy[Object.keys(enemy)[placeHolderRandomNo]];
 //    myEnemy= enemy[Object.keys(enemy)[placeHolderRandomNo]];
 
->>>>>>> enemy player box updates
+
     console.log(computerPlayerStats);
     console.log(placeHolderRandomNo);
     console.log(badguy);
   }
 };
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
 
->>>>>>> enemy player box updates
+
+enemy player box updates
 let player;
 let getPlayer;
 

@@ -77,12 +77,12 @@ console.log("hi!");
 // Player.prototype.healthbar {
 //
 // }
-function Enemy({ color = "brown",
-size = "small",
-health = 500,
+function Enemy({ color,
+size,
+health,
 maxHealth,
 healthBar,
-attackPoints = 10, username = 'Enemy'} = {})
+attackPoints, username} = {})
 {   this.e_color = color,
     this.e_size = size,
     this.e_health = health,
@@ -142,9 +142,8 @@ for (var i = 0; i < 1; i++) {
   if (i < 1) {
     var placeHolderRandomNo = (get_rand(nums));
     var computerPlayerStats = enemy[Object.keys(enemy)[placeHolderRandomNo]];
-    badguy = new Enemy(computerPlayerStats);
+    badguy = (computerPlayerStats);
     console.log(computerPlayerStats);
-    console.log(placeHolderRandomNo);
     console.log(badguy);
   }
 };
@@ -173,11 +172,13 @@ greenButton.addEventListener('click', selectPlayer);
 
 // let x = prompt("Health of player? ");
 
-function myFunction() {
+function toggleing() {
+  var elementTwo = document.getElementById("myEnemy");
+
+  elementTwo.classList.toggle(badguy.e_color + "fight");
   var element = document.getElementById("myDiv");
   element.classList.toggle(player.color + "fight");
-  var elementTwo = document.getElementById("myEnemy");
-  elementTwo.classList.toggle(badguy.e_color + "fight");
+
   var buttonWords = document.querySelector(".fightbtn");
   if (buttonWords.innerHTML === "FIGHT") {
     buttonWords.innerHTML = "RELOAD!";

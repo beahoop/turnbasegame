@@ -42,23 +42,31 @@
   </div>
 
   <script id="game" class="containerbg" type="text/x-handlebars-template">
-  <div>
+    <div>
       <div class="stadium" style="background-image: url('images/fightingbg.gif'); background-size: contain">
           <div class="playerHB">
 
               <p class="{{this.color}}" id="myDiv"></p>
+              <p style="color:blue;">{{this.health}}</p>
               <hr class="playerhr healthbar" style="opacity: 1;
     height: 10px; color: red;" />
-              <button class="btn-danger fightbtn" onclick="myFunction()">FIGHT</button>
+              <button class="btn-danger fightbtn" onclick="toggleing()">FIGHT</button>
 
           </div>
           <div class="winner">
           </div>
           <div class="enemyHB">
+<<<<<<< HEAD
             <div id="myEnemy" class="{{this.e_color}}">
               <p class="{{this.e_color}}" ></p>
               </div>
               <hr class="enemyhr healthbar" style=" opacity: 1;
+=======
+            <div id="myEnemy">
+              <p class="{{this.e_color}}" ></p>
+              </div>
+              <hr class="enemyhr ehealthbar" style=" opacity: 1;
+>>>>>>> updated
     height: 10px;"/>
           </div>
       </div>

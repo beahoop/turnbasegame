@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 //
 // healthbar = player.healthbar
 
 
-=======
 /*
 TO DO:
 -
@@ -12,7 +10,6 @@ BONUS:
 - Page size reactive, health bars squish together
 
 */
->>>>>>> 29f8e72 (Add notes)
 
 // user = prompt("Hello what is your username?")
 
@@ -36,10 +33,13 @@ BONUS:
 //
 console.log("hi!");
 
-function Player({color, size, health, attackPoints, username = 'Computer'} = {})
-{   this.color = color,
+function Player({color, size, health, healthBar, maxHealth, attackPoints, username = 'Computer'} = {}) {
+    // healthBar = document.querySelector('.playerhr'),
+    this.color = color,
     this.size = size,
     this.health = health,
+    this.healthBar = healthBar,
+    this.maxHealth = maxHealth,
     this.attackPoints = attackPoints,
     this.username = username;
 };
@@ -50,6 +50,7 @@ const players = {
     color: 'gray',
     size: 'small',
     health: 500,
+    maxHealth: 500,
     attackPoints: 10,
     username: 'user',
   },
@@ -57,6 +58,7 @@ const players = {
     color: 'red',
     size: 'large',
     health: 100,
+    maxHealth: 100,
     attackPoints: 50,
     username: 'user',
   },
@@ -64,6 +66,7 @@ const players = {
     color: 'green',
     size: 'med',
     health: 250,
+    maxHealth: 250,
     attackPoints: 25,
     username: 'user',
   }
@@ -73,10 +76,13 @@ console.log("hi!");
 function Enemy({ color = "brown",
 size = "small",
 health = 500,
+maxHealth,
+healthBar,
 attackPoints = 10, username = 'Enemy'} = {})
 {   this.color = color,
     this.size = size,
     this.health = health,
+    this.healthBar = healthBar,
     this.attackPoints = attackPoints,
     this.username = username;
 };
@@ -88,6 +94,7 @@ const enemy = {
     color: 'brown',
     size: 'small',
     health: 500,
+    maxHealth: 500,
     attackPoints: 10,
     username: 'enemy1',
   },
@@ -95,6 +102,7 @@ const enemy = {
     color: 'black',
     size: 'large',
     health: 100,
+    maxHealth: 100,
     attackPoints: 50,
     username: 'enemy2',
   },
@@ -102,6 +110,7 @@ const enemy = {
     color: 'yellow',
     size: 'med',
     health: 250,
+    maxHealth: 250,
     attackPoints: 25,
     username: 'enemy3',
   }
@@ -134,7 +143,6 @@ for (var i = 0; i < 1; i++) {
   }
 };
 
-
 let player;
 let getPlayer;
 
@@ -156,27 +164,25 @@ greenButton.addEventListener('click', selectPlayer);
 //////////// deal with player health value, modify length of health bar
 
 
-const playerHealthBar = document.querySelector('.playerhr');
+// const playerHealthBar =
 const enemyHealthBar = document.querySelector('.enemyhr');
 let death = false;
 
-function healthBarMath(healthBar, currentHealth, healthMax, healthIncrement, operation) {
+
+function healthBarMath(character, healthIncrement, operation) {
   let newHealth;
   if (operation === "+") {
-    newHealth = ((500 / healthMax) * currentHealth) + ((500 / healthMax) * healthIncrement);
+    newHealth = ((500 / character.maxHealth) * character.health) + ((500 / character.maxHealth) * healthIncrement);
   } else if (operation === "-") {
-    newHealth = ((500 / healthMax) * currentHealth) - ((500 / healthMax) * healthIncrement);
+    newHealth = ((500 / character.maxHealth) * character.health) - ((500 / character.maxHealth) * healthIncrement);
   };
   // if (newHealth >= 0) {
   //   newHealth = 0;
   //   death = true;
   //   console.log("You died!")
   // } else {
-  healthBar.style.width = `${newHealth}px`;
+  character.healthBar.style.width = `${newHealth}px`;
 }
-
-healthBarMath(playerHealthBar, 500, 500, 0, "-")
-console.log(playerHealthBar.style.width)
 
 
 // console.log(playerHealthBar.style.width)
@@ -216,14 +222,14 @@ function fight() {
     endGameDisplay()
   }
   else if(buttonWords.innerHTML === "RELOAD!"){
-      console.log(enemy.attackPoints);
+    console.log(enemy.attackPoints);
     player.health = player.health - enemy.attackPoints;
     enemy.health = enemy.health - player.attackPoints;
     console.log('enemyhealth', enemy.username, enemy.health);
     console.log('playerAP', player.username, player.health);
+  } else if(buttonWords.innerHTML === "FIGHT") {
+    console.log("Reloading");
   }
-  else if(buttonWords.innerHTML === "FIGHT" )
-  console.log("Reloading");
 };
 ////////////////////////////////HANDLEBARS
 

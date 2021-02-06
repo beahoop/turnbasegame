@@ -1,7 +1,18 @@
+<<<<<<< HEAD
 //
 // healthbar = player.healthbar
 
 
+=======
+/*
+TO DO:
+-
+
+BONUS:
+- Page size reactive, health bars squish together
+
+*/
+>>>>>>> 29f8e72 (Add notes)
 
 // user = prompt("Hello what is your username?")
 
@@ -144,20 +155,37 @@ greenButton.addEventListener('click', selectPlayer);
 
 //////////// deal with player health value, modify length of health bar
 
-// const playerHealthBar = document.querySelector('.playerhr');
-// const enemyHealthBar = document.querySelector('.enemyhr');
-//
-// function healthBarMath(healthBar, healthMax, healthIncrement) {
-//   newHealth = currentHealth - ((250 / healthMax) * healthIncrement)
-//   healthBar.style.width = `${newHealth}px`;
-// }
 
-// let x = prompt("Health of player? ");
+const playerHealthBar = document.querySelector('.playerhr');
+const enemyHealthBar = document.querySelector('.enemyhr');
+let death = false;
+
+function healthBarMath(healthBar, currentHealth, healthMax, healthIncrement, operation) {
+  let newHealth;
+  if (operation === "+") {
+    newHealth = ((500 / healthMax) * currentHealth) + ((500 / healthMax) * healthIncrement);
+  } else if (operation === "-") {
+    newHealth = ((500 / healthMax) * currentHealth) - ((500 / healthMax) * healthIncrement);
+  };
+  // if (newHealth >= 0) {
+  //   newHealth = 0;
+  //   death = true;
+  //   console.log("You died!")
+  // } else {
+  healthBar.style.width = `${newHealth}px`;
+}
+
+healthBarMath(playerHealthBar, 500, 500, 0, "-")
+console.log(playerHealthBar.style.width)
 
 
 // console.log(playerHealthBar.style.width)
 
 ///////////////////////////////ANIMATIONS
+// HOW TO DIE:
+//
+
+// let x = prompt("Health of player? ");
 
 function myFunction() {
   var element = document.getElementById("myDiv");

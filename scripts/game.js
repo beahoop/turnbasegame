@@ -165,8 +165,6 @@ redButton.addEventListener('click', selectPlayer);
 const greenButton = document.querySelector('.green');
 greenButton.addEventListener('click', selectPlayer);
 
-
-
 ///////////////////////////////ANIMATIONS
 // HOW TO DIE:
 //
@@ -177,7 +175,7 @@ function myFunction() {
   var element = document.getElementById("myDiv");
   element.classList.toggle(player.color + "fight");
   var elementTwo = document.getElementById("myEnemy");
-  elementTwo.classList.toggle("enemyfight");
+  elementTwo.classList.toggle(badguy.e_color + "fight");
   var buttonWords = document.querySelector(".fightbtn");
   if (buttonWords.innerHTML === "FIGHT") {
     buttonWords.innerHTML = "RELOAD!";
@@ -205,6 +203,8 @@ function fight() {
     console.log(badguy.e_attackPoints);
     player.health = player.health - badguy.e_attackPoints;
     badguy.e_health = badguy.e_health - player.attackPoints;
+    healthBarMath(badguy, badguy.e_attackPoints, "-");
+    healthBarMath(player, player.attackPoints, "-");
     console.log('badguyhealth', badguy.e_username, badguy.e_health);
     console.log('playerhealth', player.username, player.health);
   } else if(buttonWords.innerHTML === "FIGHT") {
@@ -235,19 +235,7 @@ function endGameDisplay() {
   }
 };
 
-/// testing board
 
-//
-// for (let i = 0; i < buttons.length; i++) {
-//   buttons[i].addEventListener('click', alertValue);
-// }
-//
-// function alertValue(event) {
-//   const buttonValue = event.target.value;
-//   console.log(buttonValue);
-//   var firstUp = buttonValue;
-//   valArr.push(buttonValue);
-// }
 
 
 //  testing board ends
@@ -256,7 +244,6 @@ function endGameDisplay() {
 
 //////////// deal with player health value, modify length of health bar
 
-
 // const playerHealthBar =
 const enemyHealthBar = document.querySelector('.enemyhr');
 let death = false;
@@ -264,19 +251,19 @@ let death = false;
 
 function healthBarMath(character, healthIncrement, operation) {
   let newHealth;
+  var healthBar = document.querySelector(".healthbar");
   if (operation === "+") {
     newHealth = ((500 / character.maxHealth) * character.health) + ((500 / character.maxHealth) * healthIncrement);
   } else if (operation === "-") {
     newHealth = ((500 / character.maxHealth) * character.health) - ((500 / character.maxHealth) * healthIncrement);
   };
-  // if (newHealth >= 0) {
-  //   newHealth = 0;
-  //   death = true;
-  //   console.log("You died!")
-  // } else {
-  character.healthBar.style.width = `${newHealth}px`;
+  healthBar.style.width = `${newHealth}px`;
 }
-healthBarMath(players, 10, "-");
+
+// function healthBar(character) {
+//   healthbar = document.querySelector(".healthbar");
+//    healthbar.style.width = `${character.health}px`;
+// };
 
 
 // console.log(playerHealthBar.style.width)

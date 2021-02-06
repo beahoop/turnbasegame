@@ -46,7 +46,7 @@
       <div class="stadium" style="background-image: url('images/fightingbg.gif'); background-size: contain">
           <div class="playerHB">
               <p class="{{this.color}}" id="myDiv"></p>
-              <hr class="playerhr" style="opacity: 1;
+              <hr class="playerhr healthbar" style="opacity: 1;
     height: 10px; color: red;" />
               <button class="btn-danger fightbtn" onclick="myFunction()">FIGHT</button>
 
@@ -54,8 +54,8 @@
           <div class="winner">
           </div>
           <div class="enemyHB">
-              <p class="{{this.e_color}}" id="myEnemy">Hi</p>
-              <hr class="enemyhr" style="opacity: 1;
+              <p class="{{this.e_color}}" id="myEnemy">{{this.e_color}}</p>
+              <hr class="enemyhr healthbar" style=" opacity: 1;
     height: 10px;"/>
           </div>
       </div>

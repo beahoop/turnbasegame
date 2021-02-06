@@ -170,21 +170,4 @@ position: relative;
   0% {transform: translateY(0);}
   50% {transform: translateY(-10px);}
   100% {transform: translateY(0);}
-}
-
-
-/* testing sea area
-
-.sea button{
-    width: 100%;
-    padding: 10px 20px;
-    margin: 3px;
-}
-
-.green{
-    background-color: green;
-}
-
-.yellow {
-    background-color: yellow;
-}
+};

@@ -77,7 +77,7 @@ body {
 
 /*  model */
 
-.enemy {
+/* .enemy {
   height:100px;
   width: 100px;
   background-color: yellow;
@@ -90,21 +90,21 @@ body {
   background-color: yellow;
   border: 1px yellow solid;
   animation: slide-left ease 3s;
-}
+} */
 
 /* use */
 .brown {
   height:100px;
   width: 100px;
-  background-color: brown;
-  border: 1px brown solid;
+  background-color: #964B00;
+  border: 1px #964B00 solid;
 }
 
 .brownfight {
   height:100px;
   width: 100px;
-  background-color: brown;
-  border: 1px brown solid;
+  background-color: #964B00;
+  border: 1px #964B00 solid;
   animation: slide-left ease 3s;
 }
 
@@ -135,8 +135,6 @@ body {
   border: 1px yellow solid;
   animation: slide-left ease 3s;
 }
-
-
 
 .containerbg {
   background-image: url('images/fightingbg.gif');

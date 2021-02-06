@@ -156,7 +156,7 @@ const selectPlayer = (event) => {
   const selection = event.target.value;
   player = new Player(players[selection]);
   console.log("hi");
-  generateOrgs(player);
+  generateOrgs(player, badguy);
   console.log(player);
 };
 
@@ -215,7 +215,7 @@ function fight() {
 };
 ////////////////////////////////HANDLEBARS
 
-const generateOrgs = (data) => {
+const generateOrgs = (data, datatwo) => {
   const source = document.getElementById("game").innerHTML;
   const template = Handlebars.compile(source);
   const context = data;

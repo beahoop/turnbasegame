@@ -45,6 +45,7 @@
   <div>
       <div class="stadium" style="background-image: url('images/fightingbg.gif'); background-size: contain">
           <div class="playerHB">
+
               <p class="{{this.color}}" id="myDiv"></p>
               <hr class="playerhr healthbar" style="opacity: 1;
     height: 10px; color: red;" />
@@ -54,7 +55,9 @@
           <div class="winner">
           </div>
           <div class="enemyHB">
-              <p class="{{this.e_color}}" id="myEnemy">{{this.e_color}}</p>
+            <div id="myEnemy" class="{{this.e_color}}">
+              <p class="{{this.e_color}}" ></p>
+              </div>
               <hr class="enemyhr healthbar" style=" opacity: 1;
     height: 10px;"/>
           </div>

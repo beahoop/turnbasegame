@@ -1,6 +1,3 @@
-
-
-
 //
 // healthbar = player.healthbar
 
@@ -27,13 +24,13 @@
 // dog.name would equal Sarah
 //
 console.log("hi!");
-function Player({color, size, healthbar =  ,health, attackPoints, username ='Computer'} = {}) {
-  this.color = color,
-  this.size = size,
-  this.health  = health,
-  this.healthbar = healthbar,
-  this.attackPoints = attackPoints,
-  this.username = username;
+
+function Player({color, size, health, attackPoints, username = 'Computer'} = {})
+{   this.color = color,
+    this.size = size,
+    this.health = health,
+    this.attackPoints = attackPoints,
+    this.username = username;
 };
 
 
@@ -61,16 +58,21 @@ const players = {
   }
 };
 console.log("hi!");
-function Enemies({color, size, health, attackPoints, username ='Enemy'} = {}) {
-  this.color = color,
-  this.size = size,
-  this.health  = health,
-  this.attackPoints = attackPoints,
-  this.username = username;
+
+function Enemy({ color = "brown",
+size = "small",
+health = 500,
+attackPoints = 10, username = 'Enemy'} = {})
+{   this.color = color,
+    this.size = size,
+    this.health = health,
+    this.attackPoints = attackPoints,
+    this.username = username;
 };
 
 
-const enemies = {
+
+const enemy = {
   brown: {
     color: 'brown',
     size: 'small',
@@ -94,6 +96,34 @@ const enemies = {
   }
 };
 
+var nums = [0, 1, 2]; // number of color possiblities
+var gen_nums = []; // place holder for previous pick possiblities...
+// this array prevents previous pics..
+function in_array(array, el) {
+  for (var i = 0; i < array.length; i++)
+    if (array[i] == el) return true;
+  return false;
+};
+
+function get_rand(array) {
+  var rand = array[Math.floor(Math.random() * array.length)];
+  if (!in_array(gen_nums, rand)) {
+    gen_nums.push(rand);
+    return rand;
+  }
+  return get_rand(array);
+};
+
+for (var i = 0; i < 1; i++) {
+  if (i < 1) {
+    var placeHolderRandomNo = (get_rand(nums));
+    var computerPlayerStats = enemy[Object.keys(enemy)[placeHolderRandomNo]];
+    console.log(computerPlayerStats);
+    console.log(placeHolderRandomNo);
+  }
+};
+
+
 let player;
 let getPlayer;
 
@@ -114,33 +144,40 @@ greenButton.addEventListener('click', selectPlayer);
 
 //////////// deal with player health value, modify length of health bar
 
-const playerHealthBar = document.querySelector('.playerhr');
-const enemyHealthBar = document.querySelector('.enemyhr');
-
-function healthBarMath(healthBar, healthMax, healthIncrement) {
-  newHealth = currentHealth - ((250 / healthMax) * healthIncrement)
-  healthBar.style.width = `${newHealth}px`;
-}
+// const playerHealthBar = document.querySelector('.playerhr');
+// const enemyHealthBar = document.querySelector('.enemyhr');
+//
+// function healthBarMath(healthBar, healthMax, healthIncrement) {
+//   newHealth = currentHealth - ((250 / healthMax) * healthIncrement)
+//   healthBar.style.width = `${newHealth}px`;
+// }
 
 // let x = prompt("Health of player? ");
 
 
-console.log(playerHealthBar.style.width)
+// console.log(playerHealthBar.style.width)
 
-////////////testing animation
+///////////////////////////////ANIMATIONS
 function myFunction() {
   var element = document.getElementById("myDiv");
-  element.classList.toggle(player.color+"fight");
-  var element = document.getElementById("myEnemy");
-  element.classList.toggle("enemyfight");
+  element.classList.toggle(player.color + "fight");
+  var elementTwo = document.getElementById("myEnemy");
+  elementTwo.classList.toggle("enemyfight");
   var buttonWords = document.querySelector(".fightbtn");
- if (buttonWords.innerHTML === "FIGHT") {
-   buttonWords.innerHTML = "RELOAD!";
- } else {
-   buttonWords.innerHTML = "FIGHT";
- }
+  if (buttonWords.innerHTML === "FIGHT") {
+    buttonWords.innerHTML = "RELOAD!";
+  } else {
+    buttonWords.innerHTML = "FIGHT";
+  }
+  fight()
 };
-////////////////////////////////
+////////////////////////////////////
+function fight() {
+  enemy.health = enemy.health - player.attackPoints;
+  console.log('enemyhealth',enemy.health);
+  console.log('playerAP',player.attackPoints);
+}
+////////////////////////////////HANDLEBARS
 
 const generateOrgs = (data) => {
   const source = document.getElementById("game").innerHTML;

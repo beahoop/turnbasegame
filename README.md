@@ -65,7 +65,8 @@ Make the function to randomly pick an emeny from enemy array and store it as the
 
 **Billy**
 finish up healthbar
-and link it to work on the page. 
+and link it to work on the page.
+put music on the page. 
 
 **Sarah**
 finish handlebars

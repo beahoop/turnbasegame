@@ -156,9 +156,7 @@ greenButton.addEventListener('click', selectPlayer);
 
 
 // console.log(playerHealthBar.style.width)
-enemy.health = 100;
-enemy.attackPoints = 20;
-enemy.username = "Bad Guy";
+
 ///////////////////////////////ANIMATIONS
 
 function myFunction() {
@@ -174,6 +172,10 @@ function myFunction() {
   }
   fight()
 };
+//////////
+enemy.health = 100;
+enemy.attackPoints = 20;
+enemy.username = "Bad Guy";
 ////////////////////////////////////
 function fight() {
   var buttonWords = document.querySelector(".fightbtn");
@@ -186,10 +188,11 @@ function fight() {
     endGameDisplay()
   }
   else if(buttonWords.innerHTML === "RELOAD!"){
-    enemy.health = enemy.health - player.attackPoints;
+      console.log(enemy.attackPoints);
     player.health = player.health - enemy.attackPoints;
+    enemy.health = enemy.health - player.attackPoints;
     console.log('enemyhealth', enemy.username, enemy.health);
-    console.log('playerAP', player.username, player.attackPoints);
+    console.log('playerAP', player.username, player.health);
   }
   else if(buttonWords.innerHTML === "FIGHT" )
   console.log("Reloading");
@@ -205,12 +208,12 @@ const generateOrgs = (data) => {
 };
 ///////////////////////////////////
 function endGameDisplay() {
-  if (player.health < 1) {
+  if (enemy.health < 1) {
     //append this
     document.querySelector(".winner").innerText = `${player.username} has WON!`;
     console.log(`${enemy.username} has lost. ${player.username} has won!`);
     return console.log("%c To play again refresh page" , "color:green");
-  } else if (enemy.health < 1) {
+  } else if (player.health < 1) {
     document.querySelector(".winner").innerText = `${enemy.username} has beated you!... GAME OVER`;
     console.log("%c GAME OVER", "color:red");
     console.log(`${player.username} has lost. ${enemy.username} has won!`);

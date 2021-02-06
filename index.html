@@ -1,39 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>GAME PAGE</title>
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/board.css">
+
+<head>
+  <meta charset="utf-8">
+  <title>GAME PAGE</title>
+  <link rel="stylesheet" href="./css/base.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
 
 
-  </head>
-  <body>
+<body class="container" id="gamediv">
 
-    <div class="d-inline-flex p-3 bg-secondary text-white">
 
-        <div class="p-4 bg-danger">
-        <h1> Rock </h1>
-        <p> Rock beats scissors.  Rock looses to paper.  Rock vs Rock is a tie.
-        <button class="red redbtn" onlick="" value="red">red</button>
-       </div>
+  <div class="welcome">
+    PICK YOUR FIGHTER
+  </div>
+  <div class="d-inline-flex p-3 bg-secondary text-white">
 
-        <div class="p-4 bg-success">
-        <h1> Paper </h1>
-        <p>  Paper beats rock.  Paper looses to scissors. Paper vs Paper is a tie.
-        <button class="green greenbtn" value="green">green</button>
-       </div>
 
-        <div class="p-4 bg-secondary">
-        <h1> Scissors </h1>
-        <p>  Scissors beats paper. Scissors looses to rock. Paper vs Paper is a tie.
-        <button class="gray graybtn" value="gray">gray</button>
-        </div>
+    <div class="p-2 bg-danger">
+      <h1> BIG RED</h1>
+      <p> He's BIG...with a big punch! But that power sure does take a lot of energy. Big Red's health is effected by this. </p>
+      <button class="red redbtn" onlick="" value="red">red</button>
+    </div>
 
-   </div>
-     <div class="flex-container">
-       <script src="./scripts/game.js" charset="utf-8"></script>
+    <div class="p-2 bg-success">
+      <h1>Avg Joe</h1>
+      <p> Just your avg green joe. Packing an avg punch with just an avg health.
+      </p>
+      <button class="green greenbtn" value="green">green</button>
+    </div>
+
+    <div class="p-2 bg-secondary">
+      <h1>Tiny Gray</h1>
+      <p> He's tiny, he's fablous, he's got a long line of health yet a small punch.
+      </p>
+      <button class="gray graybtn" value="gray">gray</button>
+    </div>
+
+
+  </div>
+
+  <script id="game" class="containerbg" type="text/x-handlebars-template">
+  <div>
+      <div class="stadium" style="background-image: url('images/fightingbg.gif'); background-size: contain">
+          <div class="playerHB">
+              <p class="{{this.color}}" id="myDiv">{{this.color}}</p>
+              <button class="btn-danger fightbtn" onclick="myFunction()">FIGHT</button>
+              <hr class="playerhr" />
+          </div>
+          <div class="winner">
+          </div>
+          <div class="enemyHB">
+              <p class="enemy enemyX" id="myEnemy">Hi</p>
+              <hr class="enemyhr" />
+          </div>
+      </div>
+  </div>
+  </script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
+  <script src="./scripts/game.js" charset="utf-8"></script>
 </body>
 
 

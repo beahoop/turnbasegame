@@ -53,18 +53,24 @@ yellow small but large health and small attack point
 **Health Bar**
 black bar
 
-#Thursday
+#Friday
 
 **Steven**
-html and css of our home page
+A generator to make the enemy... pick a color and store the info as the new constructor for the enemy.
+This will allow the computer to play as a random enemy char. for 1 game.
+This game will play out, there will be an option to refresh and
+the function random enemy will play again.
+
+Make the function to randomly pick an emeny from enemy array and store it as the new enemy constructor.
 
 **Billy**
-to look into the health bar and
-look at event listeners
+finish up healthbar
+and link it to work on the page.
+put music on the page. 
 
 **Sarah**
-constructors for player and enemy
-look at css for the board.html
+finish handlebars
+look at the fight button
 
 **Mady**Said include music
 

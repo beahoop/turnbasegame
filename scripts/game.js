@@ -1,3 +1,8 @@
+//
+// healthbar = player.healthbar
+
+
+
 // user = prompt("Hello what is your username?")
 
 // player {
@@ -19,20 +24,21 @@
 // dog.name would equal Sarah
 //
 console.log("hi!");
-function Player({color, size, health, attackPoints, username ='Computer'} = {}) {
-  this.color = color,
-  this.size = size,
-  this.health  = health,
-  this.attackPoints = attackPoints,
-  this.username = username;
+
+function Player({color, size, health, attackPoints, username = 'Computer'} = {})
+{   this.color = color,
+    this.size = size,
+    this.health = health,
+    this.attackPoints = attackPoints,
+    this.username = username;
 };
 
 
 const players = {
-  grey: {
-    color: 'grey',
+  gray: {
+    color: 'gray',
     size: 'small',
-    health: 100,
+    health: 500,
     attackPoints: 10,
     username: 'user',
   },
@@ -51,43 +57,86 @@ const players = {
     username: 'user',
   }
 };
+console.log("hi!");
+
+function Enemy({ color = "brown",
+size = "small",
+health = 500,
+attackPoints = 10, username = 'Enemy'} = {})
+{   this.color = color,
+    this.size = size,
+    this.health = health,
+    this.attackPoints = attackPoints,
+    this.username = username;
+};
 
 
- const enemies = {
-   orange: {
-    color: 'orange',
-    size: 'medium',
-    health: 125,
+
+const enemy = {
+  brown: {
+    color: 'brown',
+    size: 'small',
+    health: 500,
     attackPoints: 10,
-    username: 'Computer',
+    username: 'enemy1',
   },
-  blue: {
-    color: 'blue',
+  black: {
+    color: 'black',
     size: 'large',
     health: 100,
-    attackPoints: 25,
-    username: 'Computer'
+    attackPoints: 50,
+    username: 'enemy2',
   },
-   gold: {
-    color: 'gold',
-    size: 'small',
+  yellow: {
+    color: 'yellow',
+    size: 'med',
     health: 250,
-    attackPoints:50,
-    username: 'Computer'
-   }
- };
+    attackPoints: 25,
+    username: 'enemy3',
+  }
+};
+
+var nums = [0, 1, 2]; // number of color possiblities
+var gen_nums = []; // place holder for previous pick possiblities...
+// this array prevents previous pics..
+function in_array(array, el) {
+  for (var i = 0; i < array.length; i++)
+    if (array[i] == el) return true;
+  return false;
+};
+
+function get_rand(array) {
+  var rand = array[Math.floor(Math.random() * array.length)];
+  if (!in_array(gen_nums, rand)) {
+    gen_nums.push(rand);
+    return rand;
+  }
+  return get_rand(array);
+};
+
+for (var i = 0; i < 1; i++) {
+  if (i < 1) {
+    var placeHolderRandomNo = (get_rand(nums));
+    var computerPlayerStats = enemy[Object.keys(enemy)[placeHolderRandomNo]];
+    console.log(computerPlayerStats);
+    console.log(placeHolderRandomNo);
+  }
+};
 
 
 let player;
+let getPlayer;
 
 const selectPlayer = (event) => {
   const selection = event.target.value;
   player = new Player(players[selection]);
+  console.log("hi");
+  generateOrgs(player);
   console.log(player);
-}
+};
 
-const greyButton = document.querySelector('.grey');
-greyButton.addEventListener('click', selectPlayer);
+const grayButton = document.querySelector('.gray');
+grayButton.addEventListener('click', selectPlayer);
 const redButton = document.querySelector('.red');
 redButton.addEventListener('click', selectPlayer);
 const greenButton = document.querySelector('.green');
@@ -95,22 +144,82 @@ greenButton.addEventListener('click', selectPlayer);
 
 //////////// deal with player health value, modify length of health bar
 
-const playerHealthBar = document.querySelector('.playerhr');
-const enemyHealthBar = document.querySelector('.enemyhr');
+// const playerHealthBar = document.querySelector('.playerhr');
+// const enemyHealthBar = document.querySelector('.enemyhr');
+//
+// function healthBarMath(healthBar, healthMax, healthIncrement) {
+//   newHealth = currentHealth - ((250 / healthMax) * healthIncrement)
+//   healthBar.style.width = `${newHealth}px`;
+// }
 
-let x = prompt("Health of player? ");
+// let x = prompt("Health of player? ");
 
-playerHealthBar.style.width = `${x}px`;
-console.log(playerHealthBar.style.width)
 
-////////////testing animation
+// console.log(playerHealthBar.style.width)
+
+///////////////////////////////ANIMATIONS
+
 function myFunction() {
-  var element = document.getElementById("myDIV");
-  element.classList.toggle("playerfight");
-  var element = document.getElementById("myEnemy");
-  element.classList.toggle("enemyfight");
-}
+  var element = document.getElementById("myDiv");
+  element.classList.toggle(player.color + "fight");
+  var elementTwo = document.getElementById("myEnemy");
+  elementTwo.classList.toggle("enemyfight");
+  var buttonWords = document.querySelector(".fightbtn");
+  if (buttonWords.innerHTML === "FIGHT") {
+    buttonWords.innerHTML = "RELOAD!";
+  } else {
+    buttonWords.innerHTML = "FIGHT";
+  }
+  fight()
+};
+//////////
+enemy.health = 100;
+enemy.attackPoints = 20;
+enemy.username = "Bad Guy";
+////////////////////////////////////
+function fight() {
+  var buttonWords = document.querySelector(".fightbtn");
+  if (enemy.health < 1) {
+    console.log(`${player.username} has won!`);
+    endGameDisplay()
+  }
+  else if (player.health < 1) {
+    console.log(`${enemy.username} has won...GAME OVER.`);
+    endGameDisplay()
+  }
+  else if(buttonWords.innerHTML === "RELOAD!"){
+      console.log(enemy.attackPoints);
+    player.health = player.health - enemy.attackPoints;
+    enemy.health = enemy.health - player.attackPoints;
+    console.log('enemyhealth', enemy.username, enemy.health);
+    console.log('playerAP', player.username, player.health);
+  }
+  else if(buttonWords.innerHTML === "FIGHT" )
+  console.log("Reloading");
+};
+////////////////////////////////HANDLEBARS
 
+const generateOrgs = (data) => {
+  const source = document.getElementById("game").innerHTML;
+  const template = Handlebars.compile(source);
+  const context = data;
+  const html = template(context);
+  document.getElementById("gamediv").innerHTML = html;
+};
+///////////////////////////////////
+function endGameDisplay() {
+  if (enemy.health < 1) {
+    //append this
+    document.querySelector(".winner").innerText = `${player.username} has WON!`;
+    console.log(`${enemy.username} has lost. ${player.username} has won!`);
+    return console.log("%c To play again refresh page" , "color:green");
+  } else if (player.health < 1) {
+    document.querySelector(".winner").innerText = `${enemy.username} has beated you!... GAME OVER`;
+    console.log("%c GAME OVER", "color:red");
+    console.log(`${player.username} has lost. ${enemy.username} has won!`);
+    return console.log("%c To play again refresh page" , "color:green");
+  }
+};
 
 /// testing board
 

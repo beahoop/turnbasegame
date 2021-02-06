@@ -1,11 +1,12 @@
 /* Initial CSS */
+html body {
+    background-color: black;
 
-
+}
+/*
 body {
   background-color: lightblue;
 }
-
-
 
 .dot {
   height: 35px;
@@ -14,34 +15,157 @@ body {
   border-radius: 50%;
   transform: translateX(-50%);
   position: absolute;
-  /* margin-left: -17.5px; */
   left: 50%;
-}
+} */
 
-
-.redbtn {
-  width: 500px;
-  height: 500px;
+.redbtn, .red  {
+  width: 200px;
+  height: 200px;
   background-color: darkred;
   border: 1px solid red;
   border-radius: 1000px;
+  animation: bounce infinite 1s;
 }
 
+.redfight {
+  width: 200px;
+  height: 200px;
+  background-color: darkred;
+  border: 1px solid red;
+  border-radius: 1000px;
+  animation: slide-right ease 3s;
+}
 
-.greenbtn {
-  width: 300px;
-  height: 300px;
+.greenbtn, .green{
+  width: 100px;
+  height: 100px;
   background-color: darkgreen;
   border: 1px solid green;
   border-radius: 500px;
+  animation: bounce infinite 1s;
 }
 
-.graybtn {
-  width: 150px;
-  height: 150px;
+.greenfight {
+  width: 100px;
+  height: 100px;
+  background-color: darkgreen;
+  border: 1px solid green;
+  border-radius: 500px;
+  animation: slide-right ease 3s;
+}
+
+.graybtn, .gray {
+  width: 50px;
+  height: 50px;
   background-color: darkgray;
   border: 1px solid green;
   border-radius: 500px;
+  animation: bounce infinite 1s;
+}
+
+.grayfight {
+  width: 50px;
+  height:50px;
+  background-color: darkgray;
+  border: 1px solid green;
+  border-radius: 500px;
+  animation: slide-right ease 3s;
+}
+
+.enemy {
+  height:100px;
+  width: 100px;
+  background-color: yellow;
+  border: 1px yellow solid;
+}
+
+.enemyfight {
+  height:100px;
+  width: 100px;
+  background-color: yellow;
+  border: 1px yellow solid;
+  animation: slide-left ease 3s;
+}
+
+.containerbg {
+  background-image: url('images/fightingbg.gif');
+  background-repeat: no-repeat;
+}
+.winner {
+  color: white;
+  background-color: grey;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 5rem;
+  position: absolute;
+}
+
+.stadium {
+display: flex;
+width: 100%;
+padding: 0;
+border: 10px grey solid;
+border-radius: 5px;
+margin-top: 100px;
+position: relative;
+}
+.playerHB {
+  padding-top: 100px;
+  margin-left: 5%;
+}
+
+.enemyHB {
+  padding-top: 100px;
+  margin-left: 60%;
+}
+
+.welcome {
+  font-size: 5rem;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+}
+
+
+
+
+/* /////////////////////////////////////ANIMATIONS */
+
+@keyframes slide-right {
+  0% {transform: translateX(0);
+  opacity: 1;
+  }
+  20% {transform: translateX(850px);
+  opacity: .5;
+  }
+  50% {transform: translateX(0);
+  opacity: 1;
+  }
+  100% {transform: translateX(0);
+  opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  0% {transform: translateX(0);
+  opacity: 1;
+  }
+  80% {transform: translateX(0);
+  opacity: 1;
+  }
+  90% {transform: translateX(-850px);
+  opacity: .5;
+  }
+  100% {transform: translateX(0);
+  opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0);}
 }
 
 

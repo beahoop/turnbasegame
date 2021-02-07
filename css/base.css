@@ -23,7 +23,7 @@ body {
 
 .redbtn, .red  {
   width: 200px;
-  height: 200px;
+  height: 300px;
   background-color: #8b0000;
   border: 1px solid #FF0000;
   border-radius: 1000px;
@@ -32,7 +32,7 @@ body {
 
 .redfight {
   width: 200px;
-  height: 200px;
+  height: 300px;
   background-color: #8B0000;
   border: 1px solid #FF0000;
   border-radius: 1000px;
@@ -50,7 +50,7 @@ body {
 
 .greenfight {
   width: 100px;
-  height: 100px;
+  height: 300px;
   background-color: #013220;
   border: 1px solid #00ff00;
   border-radius: 500px;
@@ -68,7 +68,7 @@ body {
 
 .grayfight {
   width: 50px;
-  height:50px;
+  height:300px;
   background-color: #a9a9a9;
   border: 1px solid #00ff00;
   border-radius: 500px;
@@ -94,57 +94,52 @@ body {
 
 /* use */
 .brown {
-  height:100px;
+  /* height:100px;
   width: 100px;
   background-color: #964B00;
-  border: 1px #964B00 solid;
+  border: 1px #964B00 solid; */
 }
 
 .brownfight {
-  height:100px;
+  /* height:100px;
   width: 100px;
   background-color: #964B00;
-  border: 1px #964B00 solid;
-  animation: slide-left ease 3s;
+  border: 1px #964B00 solid; */
+  animation: slide-left ease 2s;
 }
 
 /* we have gold instead of black  */
 
 .black {
-  height:150px;
+  /* height:150px;
   width: 90px;
   background-color: #D4AF37;
-  border: 1px #DC9202 solid;
+  border: 1px #DC9202 solid; */
 }
 
 .blackfight {
-  height:150px;
+  /* height:150px;
   width: 90px;
-<<<<<<< HEAD
-  background-color: black;
-  border: 1px gold solid;
-=======
   background-color: #D4AF37;
-  border: 1px #DC9202 solid;
->>>>>>> hex color code changes
-  animation: slide-left ease 3s;
+  border: 1px #DC9202 solid; */
+  animation: slide-left ease 2s;
 }
 
 /* we have gold instead of black  */
 
 .yellow {
-  height:100px;
+  /* height:100px;
   width: 100px;
   background-color: #FFFF00;
-  border: 1px #9b870c solid;
+  border: 1px #9b870c solid; */
 }
 
 .yellowfight {
-  height:100px;
+  /* height:100px;
   width: 100px;
   background-color: #FFFF00;
-  border: 1px #9b870c solid;
-  animation: slide-left ease 3s;
+  border: 1px #9b870c solid; */
+  animation: slide-left ease 2s;
 }
 
 .containerbg {

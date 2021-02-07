@@ -34,7 +34,7 @@ user = prompt("Hello what is your username?")
 console.log("hi!");
 
 function Player({color, url, size, health, healthBar, maxHealth, attackPoints, username = 'Computer'} = {}) {
-  this.url = url,
+    this.url = url,
     this.color = color,
     this.size = size,
     this.health = health,
@@ -47,7 +47,7 @@ function Player({color, url, size, health, healthBar, maxHealth, attackPoints, u
 
 const players = {
   gray: {
-    // url: "images/char.png",
+    url: "images/goodguy1.png",
     color: 'gray',
     size: 'small',
     health: 500,
@@ -56,7 +56,7 @@ const players = {
     username: user,
   },
   red: {
-
+    url: "images/goodguy1.png",
     color: 'red',
     size: 'large',
     health: 100,
@@ -65,7 +65,7 @@ const players = {
     username: user,
   },
   green: {
-
+    url: "images/goodguy1.png",
     color: 'green',
     size: 'med',
     health: 250,
@@ -98,7 +98,7 @@ attackPoints, username} = {})
 
 const enemy = {
   brown: {
-    e_url: "images/bagguy1.png",
+    e_url: "images/badguy1.png",
     e_color: 'brown',
     e_size: 'small',
     e_health: 500,
@@ -107,7 +107,7 @@ const enemy = {
     e_username: 'Eliminator!',
   },
   black: {
-    e_url: "images/bagguy1.png",
+    e_url: "images/bagguy2.png",
     e_color: 'black',
     e_size: 'large',
     e_health: 100,
@@ -116,7 +116,7 @@ const enemy = {
     e_username: 'Extinguisher!',
   },
   yellow: {
-    e_url: "images/bagguy2.png",
+    e_url: "images/badguy3.png",
     e_color: 'yellow',
     e_size: 'med',
     e_health: 250,
@@ -161,10 +161,11 @@ const selectPlayer = (event) => {
   const selection = event.target.value;
   player = new Player(players[selection]);
   console.log("hi");
-  generateOrgs(player, badguy);
+  generateOrgs(player);
   console.log(player);
-  var enemyStyle = document.getElementById("myEnemy");
-  enemyStyle.classList = badguy.e_color;
+  const audio = document.querySelector(".backgroudaudio");
+  audio.volume = 0.3;
+  audio.play();
 };
 
 const grayButton = document.querySelector('.gray');
@@ -181,32 +182,36 @@ greenButton.addEventListener('click', selectPlayer);
 // let x = prompt("Health of player? ");
 
 function toggleing() {
+
   var element = document.getElementById("myDiv");
   element.classList.toggle(player.color + "fight");
   var buttonWords = document.querySelector(".fightbtn");
   if (buttonWords.innerHTML === "FIGHT") {
     buttonWords.innerHTML = "RELOAD!";
     var enemyStyle = document.getElementById("myEnemy");
-
+    enemyStyle.classList = badguy.e_color + "fight";
+    var enemyImg = document.getElementById("enemyImg");
+    enemyImg.src = badguy.e_url;
   } else {
     buttonWords.innerHTML = "FIGHT";
     var enemyStyle = document.getElementById("myEnemy");
-
+    enemyStyle.classList = badguy.e_color;
+    var enemyImg = document.getElementById("enemyImg");
+    enemyImg.src = badguy.e_url;
   }
   fight()
-toggleEnemy()
+// toggleEnemy()
 };
-function toggleEnemy() {
-  
-  var enemyStyle = document.getElementById("myEnemy");
-
-  enemyStyle.classList.toggle(badguy.e_color + "fight");
-}
+// function toggleEnemy() {
+//   var enemyStyle = document.getElementById("myEnemy");
+//   enemyStyle.classList.toggle(badguy.e_color + "fight");
+// }
 //////////
 // enemy.health = 100;
 // enemy.attackPoints = 20;
 // enemy.username = "Bad Guy";
 ////////////////////////////////////
+
 function fight() {
   var buttonWords = document.querySelector(".fightbtn");
   if (badguy.e_health < 1) {
@@ -218,7 +223,9 @@ function fight() {
     endGameDisplay()
   }
   else if(buttonWords.innerHTML === "RELOAD!"){
-    console.log(badguy.e_attackPoints);
+    const kick = document.querySelector(".kickaudio");
+    kick.volume = .9;
+    kick.play();
     player.health = player.health - badguy.e_attackPoints;
     badguy.e_health = badguy.e_health - player.attackPoints;
     // healthBarEnemy(badguy);
@@ -237,8 +244,10 @@ const generateOrgs = (data, datatwo) => {
   const context = data;
   const html = template(context);
   document.getElementById("gamediv").innerHTML = html;
+  var enemyImg = document.getElementById("enemyImg");
+  enemyImg.src = badguy.e_url;
 };
-///////////////////////////////////
+///////////////////////////////////W
 function endGameDisplay() {
   if (badguy.e_health < 1) {
     //append this

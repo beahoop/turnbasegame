@@ -21,21 +21,24 @@
     <div class="p-2 bg-danger">
       <h1> BIG RED</h1>
       <p> He's BIG...with a big punch! But that power sure does take a lot of energy. Big Red's health is effected by this. </p>
-      <button class="red redbtn" onlick="" value="red">red</button>
+      <button class="red redbtn" onlick="" value="red" style= background-image: url("images/goodguy1.png")"">
+    </button>
     </div>
 
     <div class="p-2 bg-success">
       <h1>Avg Joe</h1>
       <p> Just your avg green joe. Packing an avg punch with just an avg health.
       </p>
-      <button class="green greenbtn" value="green">green</button>
+      <button class="green greenbtn" value="green">
+        <img class="btn" src="" alt=""></button>
     </div>
 
     <div class="p-2 bg-secondary">
       <h1>Tiny Gray</h1>
       <p> He's tiny, he's fablous, he's got a long line of health yet a small punch.
       </p>
-      <button class="gray graybtn" value="gray">gray</button>
+      <button class="gray graybtn" value="gray">
+        <img class="btn" src="" alt=""></button>
     </div>
 
 
@@ -46,26 +49,29 @@
       <div class="row">
         <div class="winner">
           </div>
+          <audio  class="backgroudaudio" src="music/new-rave.mp3"></audio>
         <div class="stadium" style="background-image: url('images/fightingbg.gif'); background-size: contain">
         <div class="col-3">
           <div class="playerHB">
-            <img src="{{this.url}}" alt="">
-              <p class="{{this.color}}" id="myDiv"></p>
+            <audio class="kickaudio"src="music/kickattack.wav"></audio>
+<button class="btn-danger fightbtn" onclick="toggleing()">FIGHT</button>
+              <p class="{{this.color}}" id="myDiv">
+              <img src="{{this.url}}" alt=""></p>
               <p class="health"></p>
               <hr class="playerhr healthbar" style="opacity: 1;
     height: 10px; color: red;"/>
 
-  <button class="btn-danger fightbtn" onclick="toggleing()">FIGHT</button>
+
           </div>
         </div>
         <div class="col-3">
         </div>
     <div class="col-3 enemyside">
-
+<audio class="enemyaudio"src="music/hitattack.wav"></audio>
       <!-- <img class="door" src="./images/door.png" alt=""> -->
 
         <div class="enemyHB">
-            <div id="myEnemy"  class="">
+            <div id="myEnemy"  class="" style="">
               <img id="enemyImg" src="" alt="">
               </div>
               <hr class="enemyhr ehealthbar" style=" opacity: 1; height: 10px; color: red;>

@@ -255,7 +255,7 @@ function endGameDisplay() {
     console.log(`${badguy.e_username} has lost. ${player.username} has won!`);
     return console.log("%c To play again refresh page" , "color:green");
   } else if (player.health < 1) {
-    document.querySelector(".winner").innerText = `${badguy.e_username} has beated you!... GAME OVER`;
+    document.querySelector(".winner").innerText = `${badguy.e_username} has defeated you!... GAME OVER`;
     console.log("%c GAME OVER", "color:red");
     console.log(`${player.username} has lost. ${badguy.e_username} has won!`);
     return console.log("%c To play again refresh page" , "color:green");

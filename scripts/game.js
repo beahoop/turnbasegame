@@ -47,7 +47,7 @@ function Player({color, url, size, health, healthBar, maxHealth, attackPoints, u
 
 const players = {
   gray: {
-    url: "images/goodguy1.png",
+    url: "images/goodguy3.png",
     color: 'gray',
     size: 'small',
     health: 500,
@@ -65,7 +65,7 @@ const players = {
     username: user,
   },
   green: {
-    url: "images/goodguy1.png",
+    url: "images/goodguy2.png",
     color: 'green',
     size: 'med',
     health: 250,
@@ -168,11 +168,11 @@ const selectPlayer = (event) => {
   audio.play();
 };
 
-const grayButton = document.querySelector('.gray');
+const grayButton = document.querySelector('.graybtn');
 grayButton.addEventListener('click', selectPlayer);
-const redButton = document.querySelector('.red');
+const redButton = document.querySelector('.redbtn');
 redButton.addEventListener('click', selectPlayer);
-const greenButton = document.querySelector('.green');
+const greenButton = document.querySelector('.greenbtn');
 greenButton.addEventListener('click', selectPlayer);
 
 ///////////////////////////////ANIMATIONS

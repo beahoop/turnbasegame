@@ -18,60 +18,71 @@ body {
   left: 50%;
 } */
 
+.bounce {
+    animation: bounce infinite 1s;
+}
 
-
-
-.redbtn, .red  {
-  width: 200px;
+.redbtn {
+  background-color: #8b0000;
+}
+ .red  {
+  /* width: 200px;
   height: 300px;
   background-color: #8b0000;
   border: 1px solid #FF0000;
-  border-radius: 1000px;
+  border-radius: 1000px; */
   animation: bounce infinite 1s;
 }
 
 .redfight {
-  width: 200px;
+  /* width: 200px;
   height: 300px;
   background-color: #8B0000;
   border: 1px solid #FF0000;
-  border-radius: 1000px;
+  border-radius: 1000px; */
   animation: slide-right ease 3s;
 }
+.greenbtn {
+  background-color: #006400;
 
-.greenbtn, .green{
-  width: 100px;
+}
+ .green{
+  /* width: 100px;
   height: 100px;
   background-color: #006400;
   border: 1px solid #149414;
-  border-radius: 500px;
+  border-radius: 500px; */
   animation: bounce infinite 1s;
 }
 
 .greenfight {
-  width: 100px;
+  /* width: 100px;
   height: 300px;
   background-color: #013220;
   border: 1px solid #00ff00;
-  border-radius: 500px;
+  border-radius: 500px; */
   animation: slide-right ease 3s;
 }
 
-.graybtn, .gray {
-  width: 50px;
+.graybtn {
+  background-color: #a9a9a9;
+  border: 1px solid green;
+}
+ .gray {
+  /* width: 50px;
   height: 50px;
   background-color: #a9a9a9;
   border: 1px solid green;
-  border-radius: 500px;
+  border-radius: 500px; */
   animation: bounce infinite 1s;
 }
 
 .grayfight {
-  width: 50px;
+  /* width: 50px;
   height:300px;
   background-color: #a9a9a9;
   border: 1px solid #00ff00;
-  border-radius: 500px;
+  border-radius: 500px; */
   animation: slide-right ease 3s;
 }
 
